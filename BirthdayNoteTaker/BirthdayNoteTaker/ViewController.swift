@@ -37,7 +37,23 @@ class ViewController: UIViewController {
         
     }
 
+    @IBAction func deleteButton(_ sender: Any) {
+        
+        let savedName = UserDefaults.standard.object(forKey: "name")
+        let savedBirthday = UserDefaults.standard.object(forKey: "birhday")
+        
 
+        if(savedName as? String) != nil{
+            UserDefaults.standard.removeObject(forKey: "name")
+            nameText.text = "Name : "
+        }
+        if(savedBirthday as? String) != nil{
+            UserDefaults.standard.removeObject(forKey: "birhday")
+            birthdayText.text = "Birthday : "
+        }
+        
+    }
+    
     @IBAction func saveButton(_ sender: Any) {
         let name = nameTextField.text
         let birhday = birthdayTextField.text
